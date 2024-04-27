@@ -1,28 +1,28 @@
-import {alertActived} from '../alert.js';
+import { alertActived } from 'https://togglekit.github.io/Plugins/alert.js';
 alertActived();
-import { cartActived } from '../cart.js';
+import { cartActived } from 'https://togglekit.github.io/Plugins/cart.js';
 cartActived();
-import {dropDownActived} from '../dropDown.js';
+import { dropDownActived } from 'https://togglekit.github.io/Plugins/dropDown.js';
 dropDownActived()
-import {modalActived} from '../modal.js';
+import { modalActived } from 'https://togglekit.github.io/Plugins/modal.js';
 modalActived();
-import {nestMenu} from '../nestMenu.js';
+import { nestMenu } from 'https://togglekit.github.io/Plugins/nestMenu.js';
 nestMenu();
-import {pagerActived} from '../pager.js'
+import { pagerActived } from 'https://togglekit.github.io/Plugins/pager.js'
 pagerActived();
-import {parentHideActived} from '../parentHide.js';
+import { parentHideActived } from 'https://togglekit.github.io/Plugins/parentHide.js';
 parentHideActived();
-import {rangeCountActived} from '../rangeCount.js';
+import { rangeCountActived } from 'https://togglekit.github.io/Plugins/rangeCount.js';
 rangeCountActived();
-import {sliderActived} from '../slider.js';
+import { sliderActived } from 'https://togglekit.github.io/Plugins/slider.js';
 sliderActived();
-import {tabActived} from '../tab.js';
+import { tabActived } from 'https://togglekit.github.io/Plugins/tab.js';
 tabActived();
-import {tooltipActived} from '../tooltip.js';
+import { tooltipActived } from 'https://togglekit.github.io/Plugins/tooltip.js';
 tooltipActived();
-import {nextSiblingToggle} from '../nextSiblingToggle.js';
+import { nextSiblingToggle } from 'https://togglekit.github.io/Plugins/nextSiblingToggle.js';
 nextSiblingToggle();
-import {preloderActived} from '../preloder.js';
+import { preloderActived } from 'https://togglekit.github.io/Plugins/preloder.js';
 preloderActived();
-import {scrollToTopActived} from '../scrollToTop.js';
+import { scrollToTopActived } from 'https://togglekit.github.io/Plugins/scrollToTop.js';
 scrollToTopActived();
