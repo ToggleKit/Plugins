@@ -1,3 +1,4 @@
+function main(){
 import { alertActived } from 'https://togglekit.github.io/Plugins/alert.js';
 alertActived();
 import { cartActived } from 'https://togglekit.github.io/Plugins/cart.js';
@@ -26,3 +27,5 @@ import { preloderActived } from 'https://togglekit.github.io/Plugins/preloder.js
 preloderActived();
 import { scrollToTopActived } from 'https://togglekit.github.io/Plugins/scrollToTop.js';
 scrollToTopActived();
+}
+export {main}
