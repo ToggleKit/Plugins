@@ -1,0 +1,216 @@
+[data-tg="alert"] {
+  display: flex;
+  align-items: flex-start;
+}
+[data-tg="dropDown"] {
+  position: relative;
+}
+[data-tg="dropDown"] > div {
+  display: none;
+}
+[data-tg="dropDown"] > [data-dropon] {
+  left: 0;
+  top: 100%;
+  display: inline-block;
+  position: absolute;
+  width: fit-content;
+  z-index: 10;
+  background: #fff;
+}
+[data-tg="shadow"][data-status="active"] {
+  display: flex;
+}
+[data-tg="shadow"] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+[data-tg="container"] {
+  padding: 20px;
+  border-radius: 10px;
+}
+[data-tg="header"] {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+  border-bottom: solid 1px gray;
+  margin-bottom: 5px;
+  padding-bottom: 10px;
+}
+[data-tg="header"] > h3 {
+  margin: 0;
+}
+[data-tg="body"] > p {
+  overflow-y: scroll;
+  margin: 0;
+}
+[data-tg="footer"] {
+  margin-top: 5px;
+  border-top: 1px solid blue;
+  padding-top: 10px;
+}
+.sub-menu,
+.sub-sub-menu {
+  display: none;
+}
+.sub-menu.show,
+.sub-sub-menu.show {
+  display: block;
+}
+[data-tg="nextSiblingToggle"] + * {
+  display: none;
+}
+[data-nextSiblingOn] {
+  display: block;
+}
+[data-page] {
+  display: none;
+}
+[data-page][data-pageon] {
+  display: block;
+}
+body.preview div[data-tg="preloader"] {
+  display: none;
+}
+div[data-tg="preloader"] {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: #fff;
+  z-index: 999;
+  left: 0;
+  top: 0;
+}
+div[data-tg="preloader"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+[data-tg="preloader"] img {
+  width: 100px;
+}
+[data-tg="scrollToTop"] {
+  display: none;
+  z-index: 500;
+}
+[data-tg="scrollToTop"].active {
+  display: inline-block;
+}
+[data-tg="sliderBox"] {
+  position: relative;
+  margin: 10px auto;
+  overflow: hidden;
+}
+[data-tg="slideable"] {
+  display: flex;
+  transition: transform ease 500ms;
+}
+[data-tg="prev"] {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+[data-tg="next"] {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+[data-tg="slideable"] > img {
+  object-fit: cover;
+}
+[data-tg="Tabs"] > div[data-tab] {
+  display: block;
+}
+[data-tg="Tabs"] > div {
+  display: none;
+}
+[data-tooltip] {
+  position: relative;
+  font-weight: bold;
+}
+[data-tooltip]:after,
+[data-tooltip]:before {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity ease 300ms;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+[data-tooltip]:before {
+  content: attr(data-tooltip);
+  font-weight: normal;
+  bottom: calc(100% + 9px);
+  left: 50%;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: var(--tooltipBorderRadius);
+  color: var(--tooltipColor);
+  background-color: var(--tooltipBackgroound);
+  white-space: nowrap;
+  box-shadow: var(--tooltipBoxShadow);
+}
+[data-tooltip]:after {
+  content: "";
+  left: 50%;
+  bottom: calc(100% - 10px);
+  border: solid 10px;
+  border-color: var(--tooltipBackgroound) #0000 #0000 #0000;
+}
+[data-tooltip][bottom]:after {
+  content: "";
+  left: 50%;
+  top: calc(100% - 10px);
+  border: solid 10px;
+  border-color: #0000 #0000 var(--tooltipBackgroound) #0000;
+}
+[data-tooltip][left]:after {
+  content: "";
+  left: -10px;
+  top: 0;
+  border: solid 10px;
+  border-color: #0000 #0000 #0000 var(--tooltipBackgroound);
+  transform: translateX(0);
+}
+[data-tooltip][right]:after {
+  content: "";
+  right: -10px;
+  top: 0;
+  border: solid 10px;
+  border-color: #0000 var(--tooltipBackgroound) #0000 #0000;
+  transform: translateX(0);
+}
+[data-tooltip][bottom]:before {
+  top: calc(100% + 9px);
+  bottom: initial;
+}
+[data-tooltip][left]:before {
+  right: calc(100% + 9px);
+  bottom: initial;
+  top: 50%;
+  left: initial;
+  transform: translateY(-50%) translateX(0);
+}
+[data-tooltip][right]:before {
+  left: calc(100% + 9px);
+  bottom: initial;
+  top: 50%;
+  right: initial;
+  transform: translateY(-50%) translateX(0);
+}
+[data-tooltip]:hover:after,
+[data-tooltip]:hover:before {
+  opacity: 1;
+  visibility: visible;
+  z-index: 10;
+}
