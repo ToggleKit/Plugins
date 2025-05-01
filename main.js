@@ -1,3 +1,5 @@
+console.log("Run ToggleKit");
+
 const alertDivs=document.querySelectorAll(`[data-tg="alert"]`);alertDivs.forEach((alertDiv=>{alertDiv.querySelector(`button`).addEventListener(`click`,function(){alertDiv.style.display=`none`})}));let cart=document.querySelector(`[data-tg="cart"]`);let cartItems=document.querySelectorAll(`[data-tg="cItem"]`);let itemsInCart=JSON.parse(localStorage.getItem(`itemsInCart`))||[];let btnTxt={};if(cartItems){if(cart){cartItems.forEach(function(cartItem){let id=cartItem.id;let cAdd=cartItem.querySelector(`[data-tg="cAdd"]`);let cURL=cartItem.querySelector(`[data-tg="cURL"]`).href;let cImg=cartItem.querySelector(`[data-tg="cImg"]`).src;let cTitle=cartItem.querySelector(`[data-tg="cTitle"]`).textContent;function btnStatus(itemsInCart){let itemIndex=itemsInCart.findIndex(item=>item.id===id);if(itemIndex==-1){btnTxt.btn="Add"}else{btnTxt.btn="Remove"}
 cAdd.textContent=btnTxt.btn}
 btnStatus(itemsInCart)
