@@ -445,32 +445,55 @@ if (scrollToTop) {
         }
     })
 }
-    const sliderELe = document.querySelectorAll('[data-tg="sliderBox"]');
-    sliderELe.forEach((element) => {
-        const container = element.querySelector(`[data-tg="slideable"]`);
-        let img = element.querySelector(`img`);
-        img.onload = ()=>{
-        element.style.width = img.naturalWidth + "px";
-        element.style.height = img.naturalHeight + "px";
-        };
-        const slides = container.children;
-        const prevButton = element.querySelector('[data-tg="prev"]');
-        const nextButton = element.querySelector('[data-tg="next"]');
-        let currentSlideIndex = 0;
+const sliderELe = document.querySelectorAll('[data-tg="sliderBox"]');
+
+sliderELe.forEach((element) => {
+    const container = element.querySelector(`[data-tg="slideable"]`);
+    const img = element.querySelector(`img`);
+    const slides = container.children;
+    const prevButton = element.querySelector('[data-tg="prev"]');
+    const nextButton = element.querySelector('[data-tg="next"]');
+    let currentSlideIndex = 0;
+
+    // Function to update element size when the image is loaded
+    function updateSize() {
+        if (img.complete && img.naturalWidth > 0) {
+            element.style.width = img.naturalWidth + "px";
+            element.style.height = img.naturalHeight + "px";
+        }
+    }
+
+    // Initial check in case the image is already loaded
+    updateSize();
+
+    // MutationObserver to watch for image changes
+    const observer = new MutationObserver(() => {
+        updateSize(); // Ensure image is fully loaded
+    });
+
+    // Observe changes in image attributes
+    observer.observe(img, { attributes: true });
+
+    // Ensure update happens when the image load event fires
+    img.addEventListener("load", updateSize, { once: true });
+
+    slides[currentSlideIndex].setAttribute("data-tg", "action");
+
+    nextButton.addEventListener("click", () => {
+        slides[currentSlideIndex].removeAttribute("data-tg");
+        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
         slides[currentSlideIndex].setAttribute("data-tg", "action");
-        nextButton.addEventListener("click", () => {
-            slides[currentSlideIndex].removeAttribute("data-tg");
-            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-            slides[currentSlideIndex].setAttribute("data-tg", "action");
-            container.style.transform = `translateX(-${100 * currentSlideIndex}%)`
-        });
-        prevButton.addEventListener("click", () => {
-            slides[currentSlideIndex].removeAttribute("data-tg");
-            currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
-            slides[currentSlideIndex].setAttribute("data-tg", "action");
-            container.style.transform = `translateX(-${100 * currentSlideIndex}%)`
-        })
-    })
+        container.style.transform = `translateX(-${100 * currentSlideIndex}%)`;
+    });
+
+    prevButton.addEventListener("click", () => {
+        slides[currentSlideIndex].removeAttribute("data-tg");
+        currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+        slides[currentSlideIndex].setAttribute("data-tg", "action");
+        container.style.transform = `translateX(-${100 * currentSlideIndex}%)`;
+    });
+});
+
 let tabContainers = document.querySelectorAll(`[data-tg="tabContainer"]`)
 tabContainers.forEach((tabContainer => {
     let tabSwitch = tabContainer.querySelectorAll(`[data-tg="tabSwitchs"]>button`);
